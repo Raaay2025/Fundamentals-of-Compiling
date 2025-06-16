@@ -1,0 +1,17 @@
+int is_keyword(char* token) {
+    for (int i = 0; i < 32; i++) {
+        if (strcmp(token, keywords[i]) == 0) return KEYWORD_BASE + i;
+    }
+    return -1;
+}
+
+int get_operator_code(char* op) {
+    for (int i = 0; i < 37; i++) {
+        if (strcmp(op, operators[i]) == 0) return OPERATOR_BASE + i;
+    }
+    return -1;
+}
+
+void write_token(FILE* out, int code, char* value) {
+    fprintf(out, "(%d, %s)\n", code, value);
+}
